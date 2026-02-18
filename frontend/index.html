@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA Wizard - AI Testing Automation</title>
+    <link rel="stylesheet" href="css/homepage.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2v17.5c0 1.4-1.1 2.5-2.5 2.5h0c-1.4 0-2.5-1.1-2.5-2.5V2"/><path d="M8.5 2h7"/><path d="M14.5 16h-5"/></svg>
+                </div>
+                <div class="logo-text">
+                    <h1>QA Wizard <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></h1>
+                    <p>AI Testing Automation</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="hero">
+            <h2 class="hero-title">Welcome to QA Wizard</h2>
+            <p class="hero-description">AI-powered test automation platform. Generate specs, test scenarios, and test code from your JIRA requirements.</p>
+        </div>
+
+        <div class="flow-cards">
+            <!-- Flow A: New Requirement -->
+            <div class="flow-card" id="card-new-requirement">
+                <div class="flow-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="12" x2="12" y1="18" y2="12"/><line x1="9" x2="15" y1="15" y2="15"/></svg>
+                </div>
+                <div class="flow-card-content">
+                    <h3 class="flow-card-title">New Requirement Flow</h3>
+                    <p class="flow-card-description">Start from a JIRA ticket to generate specifications and test scenarios</p>
+                    <div class="flow-steps">
+                        <div class="flow-step">
+                            <span class="flow-step-number">1</span>
+                            <span>JIRA Input</span>
+                        </div>
+                        <div class="flow-step-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-number">2</span>
+                            <span>Spec Generation</span>
+                        </div>
+                        <div class="flow-step-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-number">3</span>
+                            <span>Test Scenarios</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="flow-card-btn btn btn-primary">
+                    Start New Requirement
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+            </div>
+
+            <!-- Flow B: Test Existing Requirement -->
+            <div class="flow-card" id="card-test-existing">
+                <div class="flow-card-icon secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div class="flow-card-content">
+                    <h3 class="flow-card-title">Test Existing Requirement</h3>
+                    <p class="flow-card-description">Generate and execute test code for a requirement that already has specs and scenarios</p>
+                    <div class="flow-steps">
+                        <div class="flow-step">
+                            <span class="flow-step-number">4</span>
+                            <span>Test Code</span>
+                        </div>
+                        <div class="flow-step-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-number">5</span>
+                            <span>Execution</span>
+                        </div>
+                        <div class="flow-step-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </div>
+                        <div class="flow-step">
+                            <span class="flow-step-number">6</span>
+                            <span>Review</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="flow-card-btn btn btn-outline">
+                    Test Existing Code
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Info Section -->
+        <div class="info-section">
+            <h3 class="info-title">How it works</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
+                    </div>
+                    <h4>JIRA Integration</h4>
+                    <p>Fetch requirements directly from your JIRA tickets</p>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                    </div>
+                    <h4>AI-Powered</h4>
+                    <p>Generate specs, scenarios, and test code using AI</p>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    </div>
+                    <h4>Auto Execution</h4>
+                    <p>Run tests automatically with Playwright, Cypress, or Jest</p>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M15 2H9a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1Z"/><path d="m9 14 2 2 4-4"/></svg>
+                    </div>
+                    <h4>Smart Review</h4>
+                    <p>AI reviews results and provides actionable feedback</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Clear session storage on homepage load to start fresh
+        const STORAGE_KEYS = {
+            JIRA_TICKET_ID: 'qa_wizard_jira_ticket_id',
+            JIRA_DATA: 'qa_wizard_jira_data',
+            SPEC_DATA: 'qa_wizard_spec_data',
+            SCENARIOS_DATA: 'qa_wizard_scenarios_data',
+            TEST_CODE_DATA: 'qa_wizard_test_code_data',
+            EXECUTION_RESULTS: 'qa_wizard_execution_results',
+            REVIEW_DATA: 'qa_wizard_review_data',
+            CURRENT_STEP: 'qa_wizard_current_step',
+            COMPLETED_STEPS: 'qa_wizard_completed_steps',
+            FLOW_TYPE: 'qa_wizard_flow_type'
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Clear all session data when visiting homepage
+            Object.values(STORAGE_KEYS).forEach(key => sessionStorage.removeItem(key));
+            
+            // Setup click handlers
+            document.getElementById('card-new-requirement').addEventListener('click', () => {
+                sessionStorage.setItem(STORAGE_KEYS.FLOW_TYPE, JSON.stringify('new_requirement'));
+                sessionStorage.setItem(STORAGE_KEYS.CURRENT_STEP, JSON.stringify(1));
+                window.location.href = '/pages/jira-input.html';
+            });
+            
+            document.getElementById('card-test-existing').addEventListener('click', () => {
+                sessionStorage.setItem(STORAGE_KEYS.FLOW_TYPE, JSON.stringify('test_existing'));
+                sessionStorage.setItem(STORAGE_KEYS.CURRENT_STEP, JSON.stringify(4));
+                window.location.href = '/pages/test-code.html';
+            });
+        });
+    </script>
+</body>
+</html>

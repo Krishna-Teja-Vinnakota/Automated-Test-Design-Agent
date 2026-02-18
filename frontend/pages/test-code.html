@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Code Generation - QA Wizard</title>
+    <link rel="stylesheet" href="../css/test-code.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2v17.5c0 1.4-1.1 2.5-2.5 2.5h0c-1.4 0-2.5-1.1-2.5-2.5V2"/><path d="M8.5 2h7"/><path d="M14.5 16h-5"/></svg>
+                </div>
+                <div class="logo-text">
+                    <h1>QA Wizard <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></h1>
+                    <p>AI Testing Automation</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <div id="ticket-display" class="ticket-badge"></div>
+                <button id="btn-home" class="btn btn-ghost">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    Home
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stepper -->
+    <div class="stepper">
+        <div class="stepper-content">
+            <div class="step complete"><div class="step-number"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+            <div class="step-connector complete"></div>
+            <div class="step complete"><div class="step-number"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+            <div class="step-connector complete"></div>
+            <div class="step complete"><div class="step-number"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div></div>
+            <div class="step-connector complete"></div>
+            <div class="step active"><div class="step-number">4</div></div>
+            <div class="step-connector"></div>
+            <div class="step"><div class="step-number">5</div></div>
+            <div class="step-connector"></div>
+            <div class="step"><div class="step-number">6</div></div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- JIRA ID Input Card (for Test Existing flow) -->
+        <div id="jira-input-card" class="card">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
+                    </div>
+                    <div>
+                        <h2 class="card-title">Enter JIRA Ticket ID</h2>
+                        <p class="card-description">Load existing specs and scenarios from database</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-content">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="jira-id-input" 
+                        placeholder="e.g., KAN-274"
+                        class="input input-lg"
+                        autocomplete="off"
+                    />
+                    <button id="btn-load-jira" class="btn btn-primary btn-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                        Load
+                    </button>
+                </div>
+                <div id="jira-error-message" class="error-message hidden"></div>
+                <div id="jira-loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>Loading requirement data...</p>
+                </div>
+                <div id="jira-success" class="success-message hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <span id="jira-success-text"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Configuration Card -->
+        <div id="config-card" class="card hidden">
+            <div class="card-header">
+                <div class="card-header-left">
+                    <div class="card-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <div>
+                        <h2 class="card-title">Test Code Generation</h2>
+                        <p class="card-description">Configure and generate automated test code</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-content">
+                <div class="form-grid">
+                    <!-- Test Type Selection -->
+                    <div class="form-group">
+                        <label class="form-label">Test Type <span class="required">*</span></label>
+                        <div class="select-wrapper">
+                            <select id="test-type-select" class="select">
+                                <option value="frontend">Frontend (E2E)</option>
+                                <option value="backend">Backend (API/Unit)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Framework Selection -->
+                    <div class="form-group">
+                        <label class="form-label">Framework <span class="required">*</span></label>
+                        <div class="select-wrapper">
+                            <select id="framework-select" class="select">
+                                <option value="playwright">Playwright</option>
+                                <option value="cypress">Cypress</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Test Categories (Backend only) -->
+                    <div id="test-categories-group" class="form-group hidden">
+                        <label class="form-label">Test Categories <span class="required">*</span></label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="check-unit" value="unit">
+                                <span class="checkbox-custom"></span>
+                                <span>Unit Tests</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="check-integration" value="integration" checked>
+                                <span class="checkbox-custom"></span>
+                                <span>Integration/API Tests</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Developer Code Input -->
+                    <div class="form-group full-width">
+                        <label class="form-label">Developer Code <span class="required">*</span></label>
+                        <p class="form-hint">Provide the source code to generate tests for. Choose one option:</p>
+                        
+                        <!-- Code Input Tabs -->
+                        <div class="code-input-tabs">
+                            <button class="code-tab active" data-tab="upload">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                                Upload Files
+                            </button>
+                            <button class="code-tab" data-tab="paste">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
+                                Paste Code
+                            </button>
+                        </div>
+
+                        <!-- File Upload Tab -->
+                        <div id="upload-tab" class="code-tab-content">
+                            <div class="file-upload">
+                                <input type="file" id="file-input" multiple accept=".js,.jsx,.ts,.tsx,.py,.java,.vue,.svelte">
+                                <div class="file-upload-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
+                                </div>
+                                <p class="file-upload-text">Drop files here or click to browse</p>
+                                <p class="file-upload-hint">Supports: .js, .jsx, .ts, .tsx, .vue, .svelte, .py, .java</p>
+                            </div>
+                            <div id="file-list" class="file-list"></div>
+                        </div>
+
+                        <!-- Paste Code Tab -->
+                        <div id="paste-tab" class="code-tab-content hidden">
+                            <textarea id="code-textarea" class="code-textarea" placeholder="Paste your source code here...
+
+Example:
+// userController.js
+const express = require('express');
+const router = express.Router();
+
+router.get('/profile', async (req, res) => {
+  // ... your code
+});
+
+module.exports = router;"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="btn-generate" class="btn btn-primary btn-generate">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+                    Generate Test Code
+                </button>
+            </div>
+        </div>
+
+        <!-- Generated Code Card (Hidden by default) -->
+        <div id="test-code-card" class="card hidden">
+            <div class="code-header">
+                <div class="code-filename">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    <span id="test-filename">test.spec.ts</span>
+                    <span id="framework-badge" class="badge badge-primary">Playwright</span>
+                </div>
+                <div class="card-actions">
+                    <button id="btn-edit" class="btn btn-outline btn-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>
+                        Edit
+                    </button>
+                    <button id="btn-copy" class="btn btn-outline btn-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                        Copy
+                    </button>
+                    <button id="btn-download" class="btn btn-outline btn-sm" title="Download test code. If the file shows a video icon (Windows .ts), right-click → Open with → choose your code editor (e.g. VS Code).">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                        Download
+                    </button>
+                </div>
+            </div>
+            <!-- View mode: pre element -->
+            <pre id="test-code-content" class="code-content"></pre>
+            <!-- Edit mode: textarea (hidden by default) -->
+            <textarea id="test-code-editor" class="code-editor hidden"></textarea>
+            <div class="card-footer">
+                <button id="btn-back" class="btn btn-outline">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+                    Back
+                </button>
+                <button id="btn-proceed" class="btn btn-primary">
+                    Proceed to Execution
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/test-code.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# Environment variables
+backend/.env
+
+# Dependencies
+node_modules/
+
+# Google/GCP credentials (sensitive)
+backend/gen-lang-client-0375456222-003d04a91a5d.json
